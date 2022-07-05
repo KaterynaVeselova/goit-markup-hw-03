@@ -11,23 +11,69 @@
 	--hero-bcg-color: #2f303a;
 	--footer-contacts-color: rgba(255, 255, 255, 0.6);
 	--footer-bcg-color: #2f303a;
+	--border-line-color: #ececec;
 }
+/* don't use commented styles because Normalize is linked */
+/* html {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+} */
 
+/* ----------------------------- */
 /* common styles*/
+/* ----------------------------- */
 body {
 	color: var(--main-text-color);
 	background-color: var(--main-bcg-color);
+
 	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	line-height: 1.19;
 	letter-spacing: 0.03em;
 }
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+	/* outline: 1px solid rgb(255, 106, 0); */
+}
+
+.section {
+	margin: 0 auto;
+	padding: 94px 0;
+	/* outline: 2px dashed #f44336; */
+}
 .list {
+	padding: 0;
+	margin: 0;
+
 	list-style: none;
 }
 .link {
-	text-decoration: none;
 	color: var(--main-text-color);
+
+	text-decoration: none;
+	display: inline-block;
+}
+h1,
+h2,
+h3,
+p,
+ul {
+	margin: 0;
+}
+.header {
+	border-bottom: 1px solid var(--border-line-color);
+}
+.main-nav {
+	display: flex;
+	align-items: center;
+	/* outline: 1px solid blue; */
 }
 
 /* header styles */
@@ -40,37 +86,58 @@ body {
 	font-weight: 700;
 	font-size: 26px;
 }
-/* .link .logo-web {
-	color: var(--accent-color);
-}
-.link .logo-studio {
-	color: var(--nav-text-color);
-} */
-
 .logo-name {
 	color: var(--accent-color);
 }
 .logo-part {
+	margin-left: -7px;
+
 	color: var(--nav-text-color);
-	margin-left: -5px;
+}
+.header-nav {
+	margin-left: 93px;
+
+	display: flex;
+}
+.header-nav .nav-item:not(:last-child) {
+	margin-right: 50px;
 }
 
 .header-nav .link {
+	padding-top: 32px;
+	padding-bottom: 32px;
+
 	color: var(--secondary-header-color);
+
 	font-weight: 500;
 	line-height: 1.14;
 	letter-spacing: 0.02em;
+
+	display: block;
 }
 .header-nav .link:hover,
 .header-nav .link:focus {
 	color: var(--accent-color);
 }
-
 /* header contacts */
+.header-contacts {
+	margin-left: auto;
+
+	display: flex;
+}
+
+.header-contacts .contacts-item + .contacts-item {
+	margin-left: 50px;
+}
 .header-contacts .link {
+	padding-top: 32px;
+	padding-bottom: 32px;
+
 	font-weight: 500;
 	line-height: 1.14;
 	letter-spacing: 0.02em;
+
+	display: block;
 }
 .header-contacts .link:hover,
 .header-contacts .link:focus {
@@ -82,28 +149,28 @@ body {
 /* main content styles */
 /* hero styles */
 .hero {
-	/*This rule has been added after mentor had insisted on positioning button towards the h1 in hero */
 	text-align: center;
+
 	background-color: var(--hero-bcg-color);
+	/* outline: 2px solid rgb(42, 135, 28); */
 }
 .hero .hero-title {
-	color: var(--main-header-color);
-
+	margin-bottom: 30px;
 	text-transform: uppercase;
-	/* text-align: center; */
-	align-content: center;
+
+	color: var(--main-header-color);
 
 	font-weight: 900;
 	font-size: 44px;
 	line-height: 1.36;
 	letter-spacing: 0.06em;
+	/* outline: 1px solid rgb(231, 139, 10); */
 }
 .hero .hero-btn {
-	width: 200px;
-	height: 50px;
-
+	min-width: 200px;
 	border-radius: 4px;
 	border: 1px;
+	padding: 10px 32px;
 
 	color: var(--main-header-color);
 	background-color: var(--accent-color);
@@ -113,43 +180,73 @@ body {
 	font-size: 16px;
 	line-height: 1.88;
 	letter-spacing: 0.02em;
+	/* outline: 1px solid rgb(231, 10, 58); */
 }
 .hero .hero-btn:hover,
 .hero .hero-btn:focus {
 	background-color: var(--btn-hover-color);
+
 	cursor: pointer;
 	/* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
 	/* box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.15); */
 }
 
 /* features styles */
-.features-title,
+.section-title.hiden,
 .contacts-title,
-.footer-title,
-.projects-title {
+.footer-title {
 	display: none;
 }
-
+.features {
+	display: flex;
+	/* allow to wrap sections, when width limit is reached */
+	flex-wrap: wrap;
+	justify-content: space-between;
+	/* outline: 1px solid rgb(231, 10, 58); */
+}
+.features-item {
+	width: 270px;
+}
 .features-item .item-header {
-	color: var(--secondary-header-color);
-
 	text-transform: uppercase;
+	margin-bottom: 10px;
+
+	color: var(--secondary-header-color);
 }
 .features-item .item-text {
-	line-height: 1.71;
+	margin-top: 0;
+	margin-bottom: 0;
 
 	text-align: left;
+	line-height: 1.71;
 }
 
 /* works styles */
-.works-title,
-.team-title {
-	color: var(--secondary-header-color);
+.works {
+	display: flex;
+	justify-content: space-between;
+	/* outline: 1px solid rgb(231, 10, 58); */
+}
+
+.section.padding-dif {
+	padding-top: 0;
+}
+.section-title.centered {
+	margin-bottom: 50px;
+
+	text-align: center;
 	font-size: 36px;
 	line-height: 1.17;
 
-	text-align: center;
+	color: var(--secondary-header-color);
 }
+.works-item .link {
+	display: block;
+}
+.works-item .image {
+	display: block;
+}
+
 .works-item .link:hover,
 .works-item .link:focus {
 	cursor: auto;
@@ -157,8 +254,20 @@ body {
 
 /* team styles */
 .section.accent {
+	/* padding-top: 94px;
+	padding-bottom: 94px;
+	margin-bottom: 0; */
+
 	background-color: var(--secondary-bcg-color);
+
 	text-align: center;
+}
+.team {
+	display: flex;
+	/* outline: 1px solid rgb(231, 10, 58); */
+}
+.team.list {
+	justify-content: space-between;
 }
 .team-item .item-card {
 	width: 270px;
@@ -166,35 +275,42 @@ body {
 	border-radius: 0px 0px 4px 4px;
 
 	background-color: var(--main-bcg-color);
+
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .team-item .item-header {
+	margin-top: 30px;
+	margin-bottom: 10px;
+
 	color: var(--secondary-header-color);
 
 	font-weight: 500;
 	font-size: 16px;
 }
 .team-item .item-text {
+	margin-bottom: 30px;
+
 	font-size: 16px;
 }
 
 /* footer styles */
 .footer {
-	width: 1600px;
-	height: 250px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+
 	background-color: var(--footer-bcg-color);
 }
 
-.logo.link {
-	font-family: Raleway;
-	font-weight: 700;
-	font-size: 26px;
+.footer .logo {
+	margin-bottom: 20px;
 }
-/* .footer .logo-studio {
-	color: var(--main-header-color);
-} */
+
 .footer .logo-part {
 	color: var(--main-header-color);
+}
+
+.address-item:not(:last-child) {
+	margin-bottom: 9px;
 }
 .address-item .link {
 	color: var(--footer-contacts-color);
@@ -203,27 +319,38 @@ body {
 	font-weight: 400;
 	line-height: 1.71;
 }
+
 .address-item .link:hover,
 .address-item .link:focus {
 	color: var(--main-header-color);
 }
 
 /* PORTFOLIO styles */
+.filter {
+	padding-bottom: 16px;
+	margin-bottom: 34px;
 
+	display: flex;
+	justify-content: center;
+	/* outline: 1px solid brown; */
+}
+.filter .filter-item:not(:last-child) {
+	margin-right: 8px;
+	/* outline: 1px solid yellowgreen; */
+}
 .btn {
-	height: 40px;
 	border-radius: 4px;
 	border: 1px;
 
 	color: var(--secondary-header-color);
 	background-color: var(--secondary-bcg-color);
 
-	font-family: inherit;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 1.63;
-	text-align: center;
-	/* display: inline; */
+
+	padding: 6px 22px 6px 22px;
+	/* outline: 1px solid tomato; */
 }
 .filter .btn:hover,
 .filter .btn:active {
@@ -232,27 +359,45 @@ body {
 
 	cursor: pointer;
 }
-.project-item {
-	width: 370px;
-	height: 400px;
-	border: 1px solid var(--border-color);
 
-	list-style-position: inside;
-
-	background-color: var(--main-bcg-color);
+.project.list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	/* outline: 1px solid rgb(231, 10, 124); */
 }
-/* .project-item .link {
-	cursor: auto;
-} */
+
+.project-item {
+	max-width: 370px;
+
+	flex-basis: calc((100% - 60px) / 3);
+	/* outline: 1px solid rgb(154, 71, 255); */
+}
+.project-item .item-image {
+	display: block;
+	/* outline: 1px solid rgb(95, 255, 71); */
+}
+.project-item .item-content {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 24px;
+
+	border: 1px solid var(--border-color);
+	border-top: none;
+	/* outline: 1px solid blue; */
+}
 .project-item .item-header {
 	color: var(--secondary-header-color);
+
 	font-size: 18px;
 	line-height: 2;
 	letter-spacing: 0.02em;
+	/* outline: 1px solid blueviolet; */
 }
 .project-item .item-desc {
 	font-size: 16px;
 	line-height: 1.88;
+	/* outline: 1px solid rgb(226, 177, 43); */
 }
 .project-item .item-text {
 	display: none;
