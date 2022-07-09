@@ -299,6 +299,9 @@ ul {
 /* .team-item:not(:last-child) {
 	margin-right: 30px;
 } */
+.team-item .item-image {
+	display: block;
+}
 .team-item .item-textpart {
 	padding: 30px 10px;
 }
@@ -344,6 +347,7 @@ footer .logo-part {
 }
 
 /* PORTFOLIO styles */
+
 .filter {
 	margin-bottom: 50px;
 
@@ -415,6 +419,6 @@ footer .logo-part {
 	line-height: 1.88;
 	/* outline: 1px solid rgb(226, 177, 43); */
 }
-.project-item .item-text {
+/* .project-item .item-text {
 	display: none;
-}
+} */
